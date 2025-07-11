@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramzi Krichen - Full Stack Developer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+</head>
+
+<body>
+
+
+    <!-- Navigation -->
+    <nav-component></nav-component>
+
+    <div class="container ">
+
+        <!-- Hero Section -->
+        <hero-component id="hero"></hero-component>
+
+        <!-- Projects Section -->
+        <projects-component id="projects"></projects-component>
+
+        <!-- Skills Section -->
+        <skills-component id="skills"></skills-component>
+
+        <!-- Contact Section -->
+        <contact-component id="contact"></contact-component>
+
+    </div>
+
+    <!-- Footer -->
+    <footer-component></footer-component>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Floating Icons Background -->
+    <div class="floating-icons" id="floatingIcons"></div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    
+
+
+    <script>
+        // Initialize EmailJS
+        (function () {
+            emailjs.init("UomFz2SxIolqQclHD");
+        })();
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+
+        themeToggle.addEventListener('click', () => {
+            if (body.hasAttribute('data-theme')) {
+                body.removeAttribute('data-theme');
+                icon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                icon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            body.setAttribute('data-theme', 'dark');
+            icon.className = 'fas fa-sun';
+        }
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Floating Icons Animation
+        function createFloatingIcons() {
+            const icons = [
+                { class: 'fab fa-react', color: '#61DAFB' },
+                { class: 'fab fa-angular', color: '#DD0031' },
+                { class: 'fab fa-js', color: '#F7DF1E' },
+                { class: 'fab fa-node-js', color: '#68A063' },
+                { class: 'fab fa-python', color: '#3776AB' },
+                { class: 'fas fa-database', color: '#4DB33D' },
+                { class: 'fab fa-git-alt', color: '#F05032' },
+                { class: 'fab fa-bootstrap', color: '#7952B3' },
+                { class: 'fab fa-html5', color: '#E34F26' },
+                { class: 'fab fa-css3-alt', color: '#1572B6' },
+                { class: 'fab fa-npm', color: '#CB3837' },
+            ];
+            const container = document.getElementById('floatingIcons');
+
+            icons.forEach((icon, index) => {
+                const iconElement = document.createElement('i');
+                iconElement.className = `floating-icon ${icon.class}`;
+                iconElement.style.color = icon.color;
+                iconElement.style.left = Math.random() * 100 + '%';
+                iconElement.style.top = Math.random() * 100 + '%';
+                iconElement.style.animationDelay = Math.random() * 6 + 's';
+                iconElement.style.animationDuration = (6 + Math.random() * 4) + 's';
+                container.appendChild(iconElement);
+            });
+        }
+
+        // Initialize floating icons
+        document.addEventListener('DOMContentLoaded', () => {
+            createFloatingIcons();
+
+            // Navigation scroll fix
+            document.addEventListener('click', (e) => {
+                if (e.target.matches('.nav-link')) {
+                    e.preventDefault();
+                    const targetId = e.target.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+    <script type='module' src='js/NavComponent.js'></script>
+    <script type='module' src='js/HeroComponent.js'></script>
+    <script type='module' src='js/ProjectsComponent.js'></script>
+    <script type='module' src='js/SkillsComponent.js'></script>
+    <script type='module' src='js/ContactComponent.js'></script>
+    <script type='module' src='js/FooterComponent.js'></script>
+</body>
+
+</html>
