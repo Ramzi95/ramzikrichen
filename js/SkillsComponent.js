@@ -95,10 +95,10 @@ class SkillsComponent extends HTMLElement {
                     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
                     
                     <section id="skills" class="skills-section">
-                        <div class="container">
+                        <div class="row">
                             <h2 class="section-title">Technologies</h2>
                             
-                            <div class="skill-category">
+                            <div class="skill-category col-12 col-md-6">
                                 <h3 class="category-title">Frontend</h3>
                                 <div class="d-flex flex-wrap justify-content-start gap-4">
                                     <div class="skill-item">
@@ -162,7 +162,7 @@ class SkillsComponent extends HTMLElement {
                                 </div>
                             </div>
                             
-                            <div class="skill-category">
+                            <div class="skill-category  col-12 col-md-6">
                                 <h3 class="category-title">Backend</h3>
                                 <div class="d-flex flex-wrap justify-content-start gap-4">
                                     <div class="skill-item">
@@ -207,7 +207,7 @@ class SkillsComponent extends HTMLElement {
                                 </div>
                             </div>
                             
-                            <div class="skill-category">
+                            <div class="skill-category  col-12 col-md-6">
                                 <h3 class="category-title">Databases & Tools</h3>
                                 <div class="d-flex flex-wrap justify-content-start gap-4">
                                     <div class="skill-item">
@@ -237,7 +237,7 @@ class SkillsComponent extends HTMLElement {
                                 </div>
                             </div>
                             
-                            <div class="skill-category">
+                            <div class="skill-category  col-12 col-md-6">
                                 <h3 class="category-title">Tools</h3>
                                 <div class="d-flex flex-wrap justify-content-start gap-4">
                                     <div class="skill-item">
