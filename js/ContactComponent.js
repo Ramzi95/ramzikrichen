@@ -148,7 +148,7 @@ class ContactComponent extends HTMLElement {
 
                         
                         .success-message {
-                            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+                            background: var(--headline-gradient);
                             color: white;
                             padding: 1rem;
                             border-radius: 10px;
@@ -181,7 +181,7 @@ class ContactComponent extends HTMLElement {
                         <div class="container">
                             <h2 class="section-title">Get In Touch</h2>
                             <div class="row">
-                                <div class="col-lg-8">
+                                <div class="col-lg-8 mb-3 mb-lg-0">
                                     <form class="contact-form" id="contactForm">
                                         <div class="success-message" id="successMessage">
                                             Thank you! Your message has been sent successfully.
@@ -192,12 +192,12 @@ class ContactComponent extends HTMLElement {
                                         
                                         <div class="form-group">
                                             <label class="form-label">Name</label>
-                                            <input type="text" class="form-control" name="user_name" required placeholder="Your Name">
+                                            <input type="text" class="form-control" name="from_name" required placeholder="Your Name">
                                         </div>
                                         
                                         <div class="form-group">
                                             <label class="form-label">Email</label>
-                                            <input type="email" class="form-control" name="user_email" required placeholder="your.email@example.com">
+                                            <input type="email" class="form-control" name="from_email" required placeholder="your.email@example.com">
                                         </div>
                                         
                                         <div class="form-group">
@@ -280,6 +280,7 @@ class ContactComponent extends HTMLElement {
         .sendForm("service_7ofhm5f", "template_danqb5c", form)
         .then(() => {
           successMessage.style.display = "block";
+          console.log({form})
           form.reset();
         })
         .catch(() => {
