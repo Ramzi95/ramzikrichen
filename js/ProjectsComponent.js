@@ -9,7 +9,7 @@ class ProjectsComponent extends HTMLElement {
           "AI-driven solution for personalized chronic care, enabling patients to manage their health with tailored recommendations and real-time monitoring.",
         technologies: "Next.js,React,FastAPI,CouchDB,GIT,Gitlab,Docker,Bootstrap,HTML,CSS,Javascript,Python",
         images: [
-          '../assets/projects/asone4health_patient/image1.png','../assets/projects/asone4health_patient/image2.png','../assets/projects/asone4health_patient/image3.png','../assets/projects/asone4health_patient/image4.png','../assets/projects/asone4health_patient/image5.png','../assets/projects/asone4health_patient/image6.png','../assets/projects/asone4health_patient/image7.png','../assets/projects/asone4health_patient/image8.png','../assets/projects/asone4health_patient/image9.png',
+          'assets/projects/asone4health_patient/image1.png','../assets/projects/asone4health_patient/image2.png','../assets/projects/asone4health_patient/image3.png','../assets/projects/asone4health_patient/image4.png','../assets/projects/asone4health_patient/image5.png','../assets/projects/asone4health_patient/image6.png','../assets/projects/asone4health_patient/image7.png','../assets/projects/asone4health_patient/image8.png','../assets/projects/asone4health_patient/image9.png',
         ],
       },
       {
